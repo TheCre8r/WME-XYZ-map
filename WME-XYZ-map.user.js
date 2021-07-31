@@ -4,7 +4,7 @@
 // @description
 // @include     /^https:\/\/(www|beta)\.waze\.com\/(?!user\/)(.{2,6}\/)?editor.*$/
 // @icon
-// @version     2021.07.30.01
+// @version     2021.07.30.02
 // @grant       none
 // ==/UserScript==
 
@@ -51,7 +51,7 @@
             zoomOffset: 12,
             displayInLayerSwitcher: true,
             opacity: localStorage.WME_livemap ? JSON.parse(localStorage.WME_livemap).opacity : 1,
-            visibility: true
+            visibility: false
         });
         W.map.addLayer(LivemapLayer);
 
@@ -71,6 +71,7 @@
             checkbox.textContent = 'Livemap Layer';
             checkbox.addEventListener('click', function(e) {
                 LivemapLayer.setVisibility(e.target.checked);
+                document.querySelector("#layer-switcher-item_satellite_imagery").shadowRoot.querySelector("span > label > input[type=checkbox]").click();
             });
             toggler.appendChild(checkbox);
             togglesList.appendChild(toggler);
