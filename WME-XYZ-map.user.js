@@ -4,7 +4,7 @@
 // @description
 // @include     /^https:\/\/(www|beta)\.waze\.com\/(?!user\/)(.{2,6}\/)?editor.*$/
 // @icon
-// @version     2021.07.30.03
+// @version     2021.08.15.00
 // @grant       none
 // ==/UserScript==
 
@@ -13,6 +13,11 @@
 (function() {
     function init() {
         log("Init Ran")
+        if (window.location.hostname == "beta.waze.com") {
+            zm = 0;
+        }else{
+            zm = 12;
+        }
         // Add the map layer, hidden by default
         I18n.translations[I18n.currentLocale()].layers.name.livemap = 'LiveMap';
 
@@ -48,7 +53,7 @@
             uniqueName: 'livemap',
             tileSize: new OL.Size(256, 256),
             transitionEffect: 'resize',
-            zoomOffset: 12,
+            zoomOffset: zm,
             displayInLayerSwitcher: true,
             opacity: localStorage.WME_livemap ? JSON.parse(localStorage.WME_livemap).opacity : 1,
             visibility: false
