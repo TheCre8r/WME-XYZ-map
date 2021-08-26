@@ -13,11 +13,7 @@
 (function() {
     function init() {
         log("Init Ran")
-        if (window.location.hostname == "beta.waze.com") {
-            zm = 0;
-        }else{
-            zm = 12;
-        }
+const zm = 12;
         // Add the map layer, hidden by default
         I18n.translations[I18n.currentLocale()].layers.name.livemap = 'LiveMap';
 
