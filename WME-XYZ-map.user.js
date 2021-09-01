@@ -4,7 +4,7 @@
 // @description
 // @include     /^https:\/\/(www|beta)\.waze\.com\/(?!user\/)(.{2,6}\/)?editor.*$/
 // @icon
-// @version     2021.08.15.00
+// @version     2021.09.01.00
 // @grant       none
 // ==/UserScript==
 
@@ -13,7 +13,7 @@
 (function() {
     function init() {
         log("Init Ran")
-const zm = 12;
+const zm = 0; // 12;
         // Add the map layer, hidden by default
         I18n.translations[I18n.currentLocale()].layers.name.livemap = 'LiveMap';
 
